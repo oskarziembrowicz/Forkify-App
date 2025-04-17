@@ -30,8 +30,6 @@ class RecipeView {
   }
 
   #generateMarkup() {
-    console.log(fracty);
-
     return `
       <figure class="recipe__fig">
         <img src="${this.#data.image}" alt="${

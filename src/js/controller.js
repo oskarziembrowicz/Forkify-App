@@ -7,9 +7,9 @@ import resultsView from './views/resultsView.js';
 import searchView from './views/searchView.js';
 
 // MIND THAT!
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
 
 const controlRecipes = async function () {
   try {
@@ -41,7 +41,7 @@ const controlSearchResults = async function () {
     await model.loadSearcheResults(query);
 
     // Render results
-    resultsView.render(model.state.search.results);
+    resultsView.render(model.getSearchResultsPage());
   } catch (err) {
     console.log(err);
   }

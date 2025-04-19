@@ -15,10 +15,12 @@ if (module.hot) {
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
-    console.log(id);
 
     if (!id) return;
     recipeView.renderSpinner();
+
+    // 0. Results view to mark selected result
+    resultsView.update(model.getSearchResultsPage());
 
     // 1. Loading recipe
     await model.loadRecipe(id);
@@ -59,7 +61,8 @@ const controlServings = function (newServings) {
   model.updateServings(newServings);
 
   // Update the recipe view
-  recipeView.render(model.state.recipe);
+  // recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
 };
 
 const init = function () {
